@@ -1,12 +1,11 @@
 <template>
-  <div class="c-button" @click="$emit('tap')"><slot /></div>
+  <div class="c-button" @click="$emit('click')"><slot /></div>
 </template>
 
 <script>
 export default {
     name:"Button",
     props:{
-        
     }
 }
 </script>

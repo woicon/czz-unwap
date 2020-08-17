@@ -4,11 +4,11 @@
         <div>From</div>
         <div>Balance:115000</div>
     </div>
-    <div class="swap-item">
+    <div class="swap-item title">
       <AmountInput />
       <SelectCoin />
     </div>
-    <div class="swap-item">
+    <div class="swap-item title">
         <div> to</div>
         <div>limit:5000</div>
     </div>
@@ -16,7 +16,7 @@
       <AmountInput />
       <SelectCoin />
     </div>
-    <Button>Swap</Button>
+    <Button :click="swapCzz">Swap</Button>
   </div>
 </template>
 
@@ -34,6 +34,11 @@ export default {
   data() {
     return {};
   },
+  methods:{
+      swapCzz(){
+          console.log('swap czz')
+      }
+  }
 };
 </script>
 
@@ -43,7 +48,10 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 20px -10px;
+    margin: 20px -10px 10px;
+    &.title{
+        margin-bottom: 0;
+    }
     &>div{
         margin: 0 10px;
         flex:1;
