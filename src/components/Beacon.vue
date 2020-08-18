@@ -9,7 +9,7 @@
           <img :src="require(`../assets/images/${item.coin}.png`)" />
           {{ item.coin }}
         </div>
-        <Button class="small" @click="$emit('tokenTap',item)">Swap</Button>
+        <Button class="small" @click="$emit('tokenTap', item)">Swap</Button>
       </div>
     </div>
     <div class="c-block-title">
