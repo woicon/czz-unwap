@@ -3,10 +3,10 @@
     <div class="c-trade">
       <div class="c-tab">
         <div
-          :class="{ 'c-tab-item':true, active: item === current,}"
           v-for="(item,index) in tab"
           :key="index"
           @click="tabTap(item)"
+          :class="['c-tab-item', item === current && 'active']"
         >{{item}}</div>
       </div>
       <component class="c-trade-container" :is="current" />
@@ -44,11 +44,14 @@ export default {
     width: 400px;
     margin: 0 auto;
     &-block{
-        padding:40px;
+        flex:1;
+        display: flex;
+        justify-content: center;
+        margin-top:60px;
     }
     &-container {
       background: #25292f;
-      padding: 20px;
+      padding:60px 20px 20px;
       margin-top: -20px;
       border-radius: 10px;
     }
@@ -60,6 +63,7 @@ export default {
     overflow: hidden;
     width: 200px;
     margin: -20px auto 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .9);
     &-item {
       flex: 1;
       background: #363a42;

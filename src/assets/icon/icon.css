@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'czz';
+  src:
+    url('fonts/czz.ttf?lrrprw') format('truetype'),
+    url('fonts/czz.woff?lrrprw') format('woff'),
+    url('fonts/czz.svg?lrrprw#czz') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="ico-"], [class*=" ico-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'czz' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-arr-down:before {
+  content: "\e900";
+}
+.ico-close:before {
+  content: "\e901";
+}
+.ico-copy:before {
+  content: "\e902";
+}
+.ico-exchange-line:before {
+  content: "\e903";
+}
+.ico-exchange:before {
+  content: "\e904";
+}
+.ico-trash:before {
+  content: "\e905";
+}

@@ -24,6 +24,14 @@ export default {
   }
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    &>div{
+      width: 100%;
+    }
   }
   body{
     background: #151719;
@@ -37,11 +45,11 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        &-sb{
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
+      }
+      &-sb{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
     }
   }

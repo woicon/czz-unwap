@@ -3,7 +3,7 @@
     <div :class="{'c-select-val':true,active:open}" @click="toggle">
       <div class="c-select-val-inner">
         <img v-if="url" :src="url" />
-        <div>{{val || 'choose'}}</div>
+        <div class="c-select-value">{{val || 'choose'}}</div>
       </div>
     </div>
     <div class="c-select-dropdown" v-if="open">
@@ -56,6 +56,9 @@ export default {
   &-select {
     position: relative;
     width: 100%;
+    &-value{
+      font-size: 14px;
+    }
     &-val {
       background: #151719;
       color: #fff;
@@ -115,6 +118,7 @@ export default {
         line-height: 40px;
         padding: 0 20px 0 10px;
         transition: .5s;
+        font-size: 14px;
         img{
             width: 20px;
             height: 20px;

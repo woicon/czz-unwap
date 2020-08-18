@@ -1,14 +1,17 @@
 <template>
     <div class="c-input">
         <div class="c-input-inner">
-            <input placeholder="" type="number" />
+            <input :value="value" placeholder="input some value" type="number" v-on:change="$emit('change', $event.target.value)" />
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name:'Input'
+    name:'Input',
+    props:{
+        value:Number
+    }
 }
 </script>
 
@@ -31,7 +34,7 @@ export default {
                 background: transparent;
                 color: #fff;
                 padding: 20px 0;
-                font-size: 20px;
+                font-size: 14px;
                 width: 110%;
                 padding-right: 10%;
                 &-inner{
