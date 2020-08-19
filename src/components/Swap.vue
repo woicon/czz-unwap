@@ -2,7 +2,7 @@
   <div class="swap">
     <div class="swap-item title">
         <div>From</div>
-        <div>Balance:115000</div>
+        <div>{{$t('trade.balance')}}:115000</div>
     </div>
     <div class="swap-item">
       <AmountInput v-model.number="total" v-on:change="allChange" />
@@ -10,13 +10,13 @@
     </div>
     <div class="swap-item title">
         <div class="f-c"><i class="ico ico-exchange" /> to</div>
-        <div>limit:5000</div>
+        <div>{{$t('trade.limit')}}:5000</div>
     </div>
     <div class="swap-item">
       <AmountInput v-model.number="exChangeTotal" />
       <SelectCoin />
     </div>
-    <Button class="button-block" :click="swapCzz">Swap</Button>
+    <Button class="button-block" :click="swapCzz">{{$t('trade.swap')}}</Button>
   </div>
 </template>
 

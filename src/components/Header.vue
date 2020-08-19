@@ -4,8 +4,14 @@
       <div class="c-logo">
         <img src="../assets/images/logo.png">
       </div>
-      <div class="c-header-bag">
-        <span class="c-address">{{address}}</span>
+      <div class="f-c">
+        <div class="f-c c-header-bag">
+          <span class="c-address" v-if="address">{{address}}</span>
+          <span class="c-address" v-else @click="connectWallet">{{$t('trade.connectWallet')}}</span>
+        </div>
+        <div class="c-lang">
+          <a v-for="(item,index) in lang" :class="['item',index === $i18n.locale && 'active']" :key="index" @click="toggleLang(index)">{{item}}</a>
+        </div>
       </div>
     </div>
     <div class="f-c c-beacon">
@@ -25,7 +31,20 @@ export default {
   },
   data(){
     return {
-      address:'012312312xx...123123ss'
+      lang:{
+        zh:'中文',
+        en:'English'
+      },
+      address: null //'012312312xx...123123ss'
+    }
+  },
+  
+  methods:{
+    toggleLang(locale){
+      this.$i18n.locale = locale
+    },
+    connectWallet(){
+      this.address = '012312312xx...123123ss'
     }
   }
 }
@@ -34,6 +53,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
   .c{
+    &-lang{
+      margin-left: 10px;
+      a{
+        color: #fff;
+        cursor: pointer;
+        font-size: 12px;
+        display: inline-block;
+        padding: 2px 4px;
+        &.active{
+          color: #2F80ED;
+        }
+      }
+    }
     &-logo{
       img{
         width: 40px;

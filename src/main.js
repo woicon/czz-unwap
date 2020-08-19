@@ -3,12 +3,13 @@ import App from './App.vue'
 import {zh,en} from './lang.js'
 import './assets/icon/icon.css'
 import VueI18n from 'vue-i18n'
+
 Vue.use(VueI18n)
 Vue.config.productionTip = false
-console.log(zh,en)
 
+// language
 const i18n = new VueI18n({
-  locale: 'en',
+  locale: 'zh',
   messages: {
     en,
     zh

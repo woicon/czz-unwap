@@ -7,7 +7,7 @@
           :key="index"
           @click="tabTap(item)"
           :class="['c-tab-item', item === current && 'active']"
-        >{{$t('trade.amount')}}</div>
+        >{{$t('trade.item')}}</div>
       </div>
       <component class="c-trade-container" :is="current" />
     </div>
