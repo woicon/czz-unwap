@@ -16,7 +16,7 @@ const i18n = new VueI18n({
   }
 })
 
-// base mock data
+// coin
 Vue.prototype.$store = {
   coin:['CZZ','BCH','BTC','ETH','BSV','BSG']
 }
