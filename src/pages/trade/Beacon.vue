@@ -6,10 +6,10 @@
     <div v-if="token">
       <div class="f-c-sb c-list-item" v-for="(item, index) in token" :key="index">
         <div class="f-c c-list-title">
-          <img :src="require(`../assets/images/${item.coin}.png`)" />
+          <img :src="require(`images/${item.coin}.png`)" />
           {{ item.coin }}
         </div>
-        <Button class="small" @click="$emit('tokenTap', item)">Swap</Button>
+        <Button class="small" @click="$emit('tokenTap', item)">{{$t('trade.swap')}}</Button>
       </div>
     </div>
     <div class="c-block-title">
@@ -18,7 +18,7 @@
     <div v-if="beacon">
       <div class="f-c-sb c-list-item" v-for="(item, index) in beacon" :key="index">
         <div class="f-c c-list-title">
-          <img :src="require(`../assets/images/${item.coin}.png`)" />
+          <img :src="require(`images/${item.coin}.png`)" />
           {{ item.coin }}
         </div>
         <div>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import Button from './Button'
+import Button from 'component/Button'
 export default {
   name: 'Beacon',
   props:{
@@ -96,7 +96,7 @@ export default {
         padding: 10px;
         margin: 10px 0;
         background: #121416;
-        border-radius: 10px;
+        border-radius: @radius;
         img{
           width: 22px;
           height: 22px;

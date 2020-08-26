@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'czz';
   src:
-    url('fonts/czz.ttf?lrrprw') format('truetype'),
-    url('fonts/czz.woff?lrrprw') format('woff'),
-    url('fonts/czz.svg?lrrprw#czz') format('svg');
+    url('fonts/czz.ttf?mmggtp') format('truetype'),
+    url('fonts/czz.woff?mmggtp') format('woff'),
+    url('fonts/czz.svg?mmggtp#czz') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -24,21 +24,42 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.ico-arr-down:before {
+.ico-beacon:before {
+  content: "\e907";
+}
+.ico-github:before {
+  content: "\e908";
+}
+.ico-language:before {
+  content: "\e909";
+}
+.ico-swap:before {
+  content: "\e90a";
+}
+.ico-telegram:before {
+  content: "\e90b";
+}
+.ico-twitter:before {
+  content: "\e90c";
+}
+.ico-ok:before {
   content: "\e900";
 }
-.ico-close:before {
+.ico-arr-down:before {
   content: "\e901";
 }
-.ico-copy:before {
+.ico-close:before {
   content: "\e902";
 }
-.ico-exchange-line:before {
+.ico-copy:before {
   content: "\e903";
 }
-.ico-exchange:before {
+.ico-exchange-line:before {
   content: "\e904";
 }
-.ico-trash:before {
+.ico-exchange:before {
   content: "\e905";
+}
+.ico-trash:before {
+  content: "\e906";
 }

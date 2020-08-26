@@ -14,7 +14,7 @@
         @click="selectItem(item)"
       >
         <div class="f-c c-select-dropdown-item">
-            <img :src="require('../assets/images/'+item+'.png')" />
+            <img :src="require('images/'+item+'.png')" />
             {{item}}
         </div>
       </div>
@@ -44,7 +44,7 @@ export default {
     selectItem(val) {
       this.toggle();
       this.val = val;
-      this.url = require(`../assets/images/${val}.png`);
+      this.url = require(`images/${val}.png`);
       this.$emit("change", val);
     },
   },
@@ -63,7 +63,7 @@ export default {
       background: #151719;
       color: #fff;
       text-align: center;
-      border-radius: 10px;
+      border-radius: @radius;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -109,7 +109,7 @@ export default {
       top: 100%;
       background: lighten(#151719,12%);
       z-index: 99;
-      border-radius: 10px;
+      border-radius: @radius;
       box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
       overflow: hidden;
       &-item {

@@ -1,18 +1,18 @@
 <template>
   <div id="app">
     <Header />
-    <Trade />
+    <div id="app-container">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Trade from './components/Trade.vue'
+import Header from 'pages/trade/Header'
 export default {
   name: 'App',
-  components: {
-    Header,
-    Trade
+  components:{
+    Header
   }
 }
 </script>
@@ -24,17 +24,29 @@ export default {
   }
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
     height: 100vh;
-    &>div{
-      width: 100%;
+    display: flex;
+    width: 100%;
+    align-content: center;
+    justify-content: space-between;
+    &-container{
+      flex:1;
     }
   }
+  .container{
+    max-width: 600px;
+    margin: 0 auto;
+  }
   body{
-    background: #151719;
+    color: @gray1;
+  }
+  a{
+    color: @blue1;
+    cursor: pointer;
+    transition: .4s;
+    &:hover{
+      color: darken(@blue1,10%);
+    }
   }
   .f{
     display: flex;

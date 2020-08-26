@@ -18,11 +18,12 @@ export default {
     text-align: center;
     height: 40px;
     line-height: 40px;
-    background: #2f80ed;
-    border-radius: 10px;
+    background: @blue1;
+    border-radius: @radius;
+    font-size: 16px;
     cursor: pointer;
     &:hover {
-      background-color: darken(#2f80ed, 5%);
+      background-color: darken(@blue1, 5%);
     }
   }
 }

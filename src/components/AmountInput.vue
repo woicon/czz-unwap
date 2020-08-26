@@ -19,7 +19,7 @@ export default {
     .c{
         &-input{
             height: 40px;
-            border-radius:10px;
+            border-radius:@radius;
             background: #151719;
             display: flex;
             align-items: center;
