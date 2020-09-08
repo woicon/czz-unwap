@@ -7,7 +7,8 @@ import info from 'pages/info'
 Vue.use(VueRouter)
 const routes = [
   { path: '/', component: info },
-  { path: '/trade', component: trade }
+  { path: '/trade', component: trade },
+  { path: '/info', component: info }
 ]
 const router =  new VueRouter({
     routes

@@ -9,6 +9,7 @@ export const zh = {
         connectWallet:'连接钱包',
         limit:'限制',
         beaconLimit:'交易量',
+        tip:'在区块高度1000后系统会默认你要购买CZZ而不在有兑换其他Token的余额。'
     },
     close: '关闭',
 }
@@ -23,6 +24,7 @@ export const en = {
         connectWallet:'connect Wallet',
         limit:'Limit',
         beaconLimit:'Beacon Limit',
+        tip:'After the block height is 1000, the system will default that you want to buy CZZ without redeeming the balance of other tokens.'
     },
     close: 'Close',
 }

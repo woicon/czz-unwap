@@ -1,55 +1,66 @@
 <template>
-  <div class="c-trade-page">
-    <div class="c-beacon-trade">
-      <div class="f-c c-beacon">
-        <div class="c-beacon-address">
-          <h4>BeaconAddress</h4>
-          <p>{{ $store.beaconAddress }}</p>
+  <div>
+    <div  v-if="beacons" class="c-trade-page">
+      <div class="c-beacon-trade">
+        <div class="f-c c-beacon">
+          <div class="c-beacon-address">
+            <h4>BeaconAddress</h4>
+            <p>{{ beacons.address }}</p>
+          </div>
+            <a class="ico-copy" />
         </div>
-        <a class="ico-copy" />
+        <!-- <div>
+          在区块高度1000后系统会默认你要购买CZZ而不在有兑换其他Token的余额。
+        </div> -->
+        <div class="c-beacon-col">
+          <div>
+            <div class="attr">block height</div>
+            {{ beacon.height }}
+          </div>
+          <div>
+            <div class="attr">balance</div>
+            {{ beacon.balance }}
+          </div>
+          <div>
+            <div class="attr">limit</div>
+            {{ beacon.limit }}
+          </div>
+        </div>
       </div>
-      <div class="c-beacon-col">
-        <div>
-          <div class="attr">block height</div>
-          {{ beacon.height }}
+      <div class="c-trade">
+        <div class="c-tab">
+          <div
+            v-for="(item,index) in tab"
+            :key="index"
+            @click="tabTap(item)"
+            :class="['c-tab-item', item === current && 'active']"
+          >{{item}}</div>
         </div>
-        <div>
-          <div class="attr">balance</div>
-          {{ beacon.balance }}
-        </div>
-        <div>
-          <div class="attr">limit</div>
-          {{ beacon.limit }}
-        </div>
+        <component class="c-trade-container" :is="current" />
       </div>
     </div>
-    <div class="c-trade">
-      <div class="c-tab">
-        <div
-          v-for="(item,index) in tab"
-          :key="index"
-          @click="tabTap(item)"
-          :class="['c-tab-item', item === current && 'active']"
-        >{{item}}</div>
-      </div>
-      <component class="c-trade-container" :is="current" />
-    </div>
+    <BeaconList v-else @change="selectSwap" />
   </div>
 </template>
 <script>
-import Beacon from "./Beacon";
-import Swap from "./Swap";
+import Beacon from "./Beacon"
+import Swap from "./Swap"
+import Button from 'component/Button'
+import BeaconList from '../info/beaconList'
 export default {
   name: "Trade",
   components: {
     Swap,
     Beacon,
+    Button,
+    BeaconList
   },
   data() {
     return {
       tab:['Swap','Beacon'],
       current: 'Swap',
       coin: this.$sort,
+      beacons: null,
       beacon:{
         height:1500,
         balance:1000000,
@@ -57,16 +68,35 @@ export default {
       }
     };
   },
+  mounted(){
+     setTimeout(() => {
+      this.$message.info({
+        message: `<div class="c-after">After the block height is <b>1000</b>, the system will default that you want to buy CZZ without redeeming the balance of other tokens.</div>`,
+        title: "notice",
+        supportHTML: true,
+        showClose: true,
+        duration: -1
+      })
+    }, 2000)
+  },
   methods: {
     tabTap(current) {
       this.current = current;
     },
+    selectSwap(item){
+      this.beacons = item
+    }
   },
 };
 </script>
 
 <style lang="less">
 .c {
+  &-after{
+    b{
+      color: @orange;
+    }
+  }
   &-trade {
     width: 500px;
     margin:80px auto 0;
@@ -76,9 +106,7 @@ export default {
       border-radius: @radius;
     }
     &-page{
-      padding: 20px;
       height: @gray3;
-      background: #121416;
       height: 100vh;
     }
   }
@@ -119,8 +147,12 @@ export default {
     &-trade{
       display: flex;
       justify-content: space-between;
+      padding: 20px;
+      background: @bg2;
+      border-radius: @radius;
     }
     &-address{
+      margin-right:20px;
       h4,p{
         color: @gray4;
         font-weight: normal;

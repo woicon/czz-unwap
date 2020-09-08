@@ -7,7 +7,13 @@
       <div class="f-c-sb c-list-item" v-for="(item, index) in token" :key="index">
         <div class="f-c c-list-title">
           <img :src="require(`images/${item.coin}.png`)" />
-          {{ item.coin }}
+          <div class="c-list-content">
+            <h4 class="f-c"> {{ item.coin }}</h4>
+            <p class="c-list-quantity">{{ item.quantity }}</p>
+          </div>
+        </div>
+        <div class="c-list-price">
+            ${{item.price}}
         </div>
         <Button class="small" @click="$emit('tokenTap', item)">{{$t('trade.swap')}}</Button>
       </div>
@@ -19,10 +25,13 @@
       <div class="f-c-sb c-list-item" v-for="(item, index) in beacon" :key="index">
         <div class="f-c c-list-title">
           <img :src="require(`images/${item.coin}.png`)" />
-          {{ item.coin }}
+          <div class="c-list-content">
+            <h4 class="f-c"> {{ item.coin }}</h4>
+            <p class="c-list-quantity">{{ item.quantity }}</p>
+          </div>
         </div>
-        <div>
-          {{ item.quantity}}
+        <div class="c-list-price end">
+            ${{item.price}}
         </div>
       </div>
     </div>
@@ -44,36 +53,44 @@ export default {
       token: [
         {
           coin: 'BCH',
-          quantity: 19284
+          price: 2.984,
+          quantity: 11219284
         },
         {
           coin: 'BTC',
-          quantity: 19284
+          price: 2.984,
+          quantity: 1231319284
         },
         {
           coin: 'CZZ',
+          price: 2.984,
           quantity: 19284
         },
         {
           coin: 'ETH',
+          price: 2.984,
           quantity: 19284
         }
       ],
       beacon: [
         {
           coin: 'BCH',
+          price: 282.984,
           quantity: 19284
         },
         {
           coin: 'BTC',
+          price: 892.984,
           quantity: 19284
         },
         {
           coin: 'CZZ',
-          quantity: 19284
+          quantity: 19284,
+          price: 1232.984,
         },
         {
           coin: 'ETH',
+          price: 12.984,
           quantity: 19284
         }
       ]
@@ -95,12 +112,41 @@ export default {
         color: #fff;
         padding: 10px;
         margin: 10px 0;
-        background: #121416;
+        background: @bg1;
         border-radius: @radius;
+        transition: .5s;
+        cursor: pointer;
+        &:hover{
+          background: darken(@bg1,5%);
+        }
         img{
           width: 22px;
           height: 22px;
           margin-right: 10px;
+        }
+        &>div{
+          width: 30%;
+          &.small{
+            width: 34px;
+          }
+        }
+      }
+      &-price{
+        font-size: 20px;
+        color: @orange;
+        font-weight:800;
+        &.end{
+          text-align: right;
+          flex:1;
+        }
+      }
+      &-content{
+        h4{
+          font-size: 16px;
+        }
+        p{
+          font-size: 14px;
+          opacity: .5;
         }
       }
     }

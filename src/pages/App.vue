@@ -23,7 +23,7 @@ export default {
     padding: 0;
   }
   #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family:sans-serif;
     height: 100vh;
     display: flex;
     width: 100%;
@@ -31,6 +31,7 @@ export default {
     justify-content: space-between;
     &-container{
       flex:1;
+      padding: 30px;
     }
   }
   .container{
@@ -38,6 +39,7 @@ export default {
     margin: 0 auto;
   }
   body{
+    background: #121416;
     color: @gray1;
   }
   a{
